@@ -12,3 +12,4 @@ Thumbs.db
 *.zip
 .vercel/
 node_modules/
+simulator_src/dist/

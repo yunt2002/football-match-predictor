@@ -1,4 +1,8 @@
-# 대한민국 vs 멕시코 승부 예측 시뮬레이터
+# Football Match Predictor
+
+**Korea vs Mexico** World Cup match prediction simulator — a **Streamlit** educational tool for exploring data-driven football modeling.
+
+Repository: [football-match-predictor](https://github.com/yunt2002/football-match-predictor)
 
 데이터와 가중치 설계를 통해 경기 결과를 추정하고 모델링 과정을 학습하는 **Streamlit** 교육용 시뮬레이터입니다.
 
@@ -11,7 +15,7 @@
 - 스코어 히트맵, 레이더/버블 차트, 시간대별 득점
 - 프리셋 (균형 / 한국 우세 / 멕시코 우세 / 최근 흐름 중시)
 - 민감도 분석, A/B 프리셋 비교, 시뮬레이션 안정성 곡선
-- AI 시나리오 & 매치 리포트 (Gemini API 또는 규칙 기반)
+- AI 시나리오 & 매치 리포트 (OpenAI GPT 또는 규칙 기반)
 - 설정 JSON 내보내기 / 불러오기
 - **2026 월드컵 최종 26인 명단** (최신 소속 반영) + API 실시간 갱신
 - 팀 선택 시 **전체 명단** 조회
@@ -60,8 +64,8 @@ API_FOOTBALL_KEY=your_api_key_here
 ## Docker
 
 ```bash
-docker build -t kor-mex-simulator .
-docker run -p 8501:8501 -e OPENAI_API_KEY=your_key -e OPENAI_MODEL=gpt-5-mini kor-mex-simulator
+docker build -t football-match-predictor .
+docker run -p 8501:8501 -e OPENAI_API_KEY=your_key -e OPENAI_MODEL=gpt-5-mini football-match-predictor
 ```
 
 ## 테스트

@@ -1,4 +1,4 @@
-"""대한민국 vs 멕시코 승부 예측 시뮬레이터 — Streamlit 앱."""
+"""Football Match Predictor — Korea vs Mexico (Streamlit)."""
 
 from __future__ import annotations
 
@@ -63,7 +63,7 @@ from match_simulator.tactics_board import (
 load_dotenv()
 
 st.set_page_config(
-    page_title="대한민국 vs 멕시코 승부 예측 시뮬레이터",
+    page_title="Football Match Predictor | KOR vs MEX",
     page_icon="⚽",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -263,8 +263,8 @@ def render_header() -> None:
     c1, c2, c3, c4 = st.columns([3, 1, 1, 1])
     with c1:
         st.markdown('<p class="sub-title">Computational Sports Modeling</p>', unsafe_allow_html=True)
-        st.markdown('<p class="main-title">⚽ 승부 예측 시뮬레이터</p>', unsafe_allow_html=True)
-        st.caption("KOR vs MEX · Matchup ID: KOR-MEX-2026-MC")
+        st.markdown('<p class="main-title">⚽ Football Match Predictor</p>', unsafe_allow_html=True)
+        st.caption("Korea vs Mexico · World Cup 2026 · Matchup ID: KOR-MEX-2026-MC")
     with c2:
         total = weight_sum(get_base_variables())
         st.metric("가중치 합계", f"{total}%", delta="정상" if total == 100 else "조정 필요")

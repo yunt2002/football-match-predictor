@@ -1,1 +1,1 @@
-"""대한민국 vs 멕시코 승부 예측 시뮬레이터."""
+"""Football Match Predictor — Korea vs Mexico World Cup simulator."""

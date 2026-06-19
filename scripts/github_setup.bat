@@ -14,8 +14,8 @@ if errorlevel 1 (
   gh auth login -h github.com -p https -w
 )
 
-set /p REPO_NAME="GitHub 저장소 이름 (예: kor-mex-simulator): "
-if "%REPO_NAME%"=="" set REPO_NAME=kor-mex-simulator
+set /p REPO_NAME="GitHub repo name (e.g. football-match-predictor): "
+if "%REPO_NAME%"=="" set REPO_NAME=football-match-predictor
 
 echo.
 echo 원격 저장소 생성 및 푸시 중...

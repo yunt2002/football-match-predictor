@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 
 import pandas as pd
 import streamlit as st
@@ -61,6 +62,19 @@ from match_simulator.tactics_board import (
 )
 
 load_dotenv()
+
+
+def _apply_streamlit_secrets() -> None:
+    """Streamlit Community Cloud secrets → os.environ (로컬 .env와 동일하게 사용)."""
+    try:
+        for key in ("OPENAI_API_KEY", "OPENAI_MODEL", "API_FOOTBALL_KEY", "APISPORTS_KEY"):
+            if key in st.secrets and st.secrets[key]:
+                os.environ.setdefault(key, str(st.secrets[key]))
+    except (FileNotFoundError, AttributeError, RuntimeError, KeyError):
+        pass
+
+
+_apply_streamlit_secrets()
 
 st.set_page_config(
     page_title="Football Match Predictor | KOR vs MEX",

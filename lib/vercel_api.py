@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from match_simulator.models import PredictionResult, SimulationResult, Variable  # noqa: E402
+from match_simulator.models import FootballDataBundle, HistoricalMatch, Player, PredictionResult, SimulationResult, Variable  # noqa: E402
 
 
 def read_json(handler: BaseHTTPRequestHandler) -> dict[str, Any]:
@@ -85,4 +85,45 @@ def simulation_to_dict(s: SimulationResult) -> dict[str, Any]:
         "total": s.total,
         "scoreHistogram": s.score_histogram,
         "timeDistribution": s.time_distribution,
+    }
+
+
+def player_to_dict(p: Player) -> dict[str, Any]:
+    return {
+        "id": p.id,
+        "name": p.name,
+        "position": p.position,
+        "club": p.club,
+        "rating": p.rating,
+        "number": p.number,
+    }
+
+
+def match_to_dict(m: HistoricalMatch) -> dict[str, Any]:
+    return {
+        "id": m.id,
+        "date": m.date,
+        "competition": m.competition,
+        "score": m.score,
+        "result": m.result,
+        "opponent": m.opponent,
+    }
+
+
+def football_bundle_to_dict(bundle: FootballDataBundle) -> dict[str, Any]:
+    return {
+        "updatedAt": bundle.updated_at,
+        "korea": {
+            "name": bundle.korea.name,
+            "source": bundle.korea.source,
+            "players": [player_to_dict(p) for p in bundle.korea.players],
+            "recentMatches": [match_to_dict(m) for m in bundle.korea.recent_matches],
+        },
+        "mexico": {
+            "name": bundle.mexico.name,
+            "source": bundle.mexico.source,
+            "players": [player_to_dict(p) for p in bundle.mexico.players],
+            "recentMatches": [match_to_dict(m) for m in bundle.mexico.recent_matches],
+        },
+        "h2hMatches": [match_to_dict(m) for m in bundle.h2h_matches],
     }

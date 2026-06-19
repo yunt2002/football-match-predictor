@@ -8,6 +8,31 @@ export type Variable = {
   weight: number;
 };
 
+export type Player = {
+  id: string;
+  name: string;
+  position: string;
+  club: string;
+  rating: number;
+  number?: number | null;
+};
+
+export type HistoricalMatch = {
+  id: string;
+  date: string;
+  competition: string;
+  score: string;
+  result: string;
+  opponent: string;
+};
+
+export type FootballData = {
+  updatedAt: string;
+  korea: { name: string; source: string; players: Player[]; recentMatches: HistoricalMatch[] };
+  mexico: { name: string; source: string; players: Player[]; recentMatches: HistoricalMatch[] };
+  h2hMatches: HistoricalMatch[];
+};
+
 export type Prediction = {
   homeWinProb: number;
   drawProb: number;
@@ -25,22 +50,10 @@ export type Bootstrap = {
   presetNames: string[];
   matchInfo: Record<string, string>;
   quickScenarios: string[];
+  glossary: Record<string, string>;
   nextMatchBanner: string;
-  standings: {
-    team: string;
-    code: string;
-    played: number;
-    won: number;
-    drawn: number;
-    lost: number;
-    gf: number;
-    ga: number;
-    pts: number;
-  }[];
-  keyPlayers: {
-    kor: { name: string; position: string; club: string; rating: number }[];
-    mex: { name: string; position: string; club: string; rating: number }[];
-  };
+  standings: { team: string; code: string; played: number; won: number; drawn: number; lost: number; gf: number; ga: number; pts: number }[];
+  footballData: FootballData;
 };
 
 export type Insights = {
@@ -74,3 +87,21 @@ export type Projection = {
   currentRankKor: number;
   currentRankMex: number;
 };
+
+export type PredictResponse = {
+  prediction: Prediction;
+  halves: Halves;
+  insights: Insights;
+  projection: Projection;
+  charts: Record<string, object>;
+  weightTotal: number;
+};
+
+export type SimulateResponse = {
+  simulation: { homeWins: number; draws: number; awayWins: number; total: number };
+  confidenceIntervals: Record<string, { point: number; low: number; high: number }>;
+  charts: Record<string, object>;
+  topScores: { score: string; count: number; probability: number }[];
+};
+
+export const RESULT_LABELS: Record<string, string> = { W: "승", D: "무", L: "패" };

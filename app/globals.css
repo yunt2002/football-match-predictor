@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f0f0ee;
+  --surface: #ffffff;
+  --text: #1a1a1a;
+  --kor: #e02020;
+  --draw: #1a1a1a;
+  --mex: #059669;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.prob-card {
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+  color: white;
+}
+
+.prob-kor {
+  background: var(--kor);
+}
+
+.prob-draw {
+  background: var(--draw);
+}
+
+.prob-mex {
+  background: var(--mex);
+}
+
+.prob-label {
+  font-size: 0.65rem;
+  opacity: 0.85;
+  text-transform: uppercase;
+}
+
+.prob-value {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.sub-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+
+.main-title {
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin: 0.25rem 0;
+}
+
+.stack-bar {
+  display: flex;
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.stack-bar span:first-child {
+  background: var(--kor);
+}
+
+.stack-bar span:nth-child(2) {
+  background: var(--draw);
+}
+
+.stack-bar span:last-child {
+  background: var(--mex);
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  background: var(--surface);
+  border-right: 1px solid #e5e5e5;
+  padding: 1rem;
+  overflow-y: auto;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+@media (max-width: 960px) {
+  .layout {
+    flex-direction: column !important;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    position: static;
+  }
+}

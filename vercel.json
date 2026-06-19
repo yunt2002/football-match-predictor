@@ -1,18 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "",
-  "outputDirectory": "public",
-  "framework": null,
-  "redirects": [
-    {
-      "source": "/api/:path*",
-      "destination": "https://kor-mex-match-predictor.streamlit.app/:path*",
-      "permanent": false
-    },
-    {
-      "source": "/(.*)",
-      "destination": "https://kor-mex-match-predictor.streamlit.app",
-      "permanent": false
+  "framework": "nextjs",
+  "functions": {
+    "api/**/*.py": {
+      "memory": 1024,
+      "maxDuration": 30
     }
-  ]
+  }
 }

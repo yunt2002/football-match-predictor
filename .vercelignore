@@ -1,14 +1,13 @@
-# Streamlit (Python) — Vercel 미지원, 업로드 제외
+# Local / Streamlit only — Vercel uses api/requirements.txt
 app.py
-match_simulator/
-requirements.txt
-requirements-dev.txt
 tests/
 .streamlit/
 scripts/
 docs/
 Dockerfile
-*.py
+render.yaml
+simulator_src/
 .venv/
 __pycache__/
 *.zip
+public/index.html

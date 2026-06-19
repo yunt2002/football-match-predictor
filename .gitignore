@@ -13,3 +13,4 @@ Thumbs.db
 .vercel/
 node_modules/
 simulator_src/dist/
+.next/

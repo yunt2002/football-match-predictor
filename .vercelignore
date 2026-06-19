@@ -1,0 +1,14 @@
+# Streamlit (Python) — Vercel 미지원, 업로드 제외
+app.py
+match_simulator/
+requirements.txt
+requirements-dev.txt
+tests/
+.streamlit/
+scripts/
+docs/
+Dockerfile
+*.py
+.venv/
+__pycache__/
+*.zip

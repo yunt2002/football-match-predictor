@@ -68,6 +68,22 @@ docker build -t football-match-predictor .
 docker run -p 8501:8501 -e OPENAI_API_KEY=your_key -e OPENAI_MODEL=gpt-5-mini football-match-predictor
 ```
 
+## GitHub & Streamlit Cloud 배포
+
+**Streamlit(Python) 앱** — 현재 프로젝트:
+
+→ **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)**
+
+## 표준 웹 스택 (다른 프로젝트용)
+
+**GitHub → Vercel → Supabase → Cursor MCP** 전체 워크플로:
+
+→ **[docs/STACK.md](docs/STACK.md)**
+
+**수업용 MCP (프로젝트별 `.cursor/mcp.json`)**:
+
+→ **[docs/MCP.md](docs/MCP.md)**
+
 ## 테스트
 
 ```powershell

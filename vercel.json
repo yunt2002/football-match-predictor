@@ -1,10 +1,18 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "npm ci && npm ci --prefix simulator_src",
-  "buildCommand": "npm run build --prefix simulator_src",
-  "outputDirectory": "simulator_src/dist",
+  "buildCommand": "",
+  "outputDirectory": "public",
   "framework": null,
-  "rewrites": [
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  "redirects": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://kor-mex-match-predictor.streamlit.app/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "destination": "https://kor-mex-match-predictor.streamlit.app",
+      "permanent": false
+    }
   ]
 }

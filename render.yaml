@@ -1,0 +1,16 @@
+# Render.com — Streamlit Docker 배포 (Streamlit Cloud 대안)
+# https://dashboard.render.com → New → Blueprint → 이 저장소 연결
+services:
+  - type: web
+    name: football-match-predictor
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /_stcore/health
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-5-mini
+      - key: API_FOOTBALL_KEY
+        sync: false

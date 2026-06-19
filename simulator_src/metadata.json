@@ -1,0 +1,6 @@
+{
+  "name": "대한민국 vs 멕시코 승부 예측 시뮬레이터",
+  "description": "데이터와 가중치 설계를 통해 경기 결과를 추정하고 모델링 과정을 학습하는 시뮬레이터입니다.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

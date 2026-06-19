@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-theme-bg: #E4E3E0;
+  --color-theme-text: #141414;
+  --color-theme-accent-red: #E02020;
+  --color-theme-accent-green: #006341;
+  --color-theme-accent-grey: #888888;
+  --shadow-brutalist: 4px 4px 0px 0px #141414;
+}
+
+@layer base {
+  body {
+    @apply bg-theme-bg text-theme-text;
+  }
+}
